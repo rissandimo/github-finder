@@ -8,6 +8,10 @@ class UI{
     }
 
     showAlert(message, className){
+
+        //clear any alert
+        this.clearAlertMessage();
+
         const alertDiv = document.createElement('div');
         //add classes based on alert
         alertDiv.className = className;
@@ -23,6 +27,14 @@ class UI{
 
         //insert alert div followed by search box
         searchContainer.insertBefore(alertDiv, searchBox);
+    }
+
+    clearAlertMessage(){
+        const currentAlert = document.querySelector('.alert');
+
+        if(currentAlert){
+            currentAlert.remove();
+        }
     }
 
     showProfile(user){

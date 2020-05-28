@@ -12,13 +12,14 @@ function fetchUserProfile(){
 
     if(userQuery != ''){ // user query
 
-        //make HTTP call
+        //make HTTP call for user profile
         github.getUser(userQuery).then(data => {
             if(data.profile.message === 'Not Found'){ // User not found
                 ui.showAlert('User not found', 'alert alert-danger');
             }else{  // user found
                 console.log(data.profile);
                 ui.showProfile(data.profile);
+                ui.showRepos(data.repos);
             }
         });
     }

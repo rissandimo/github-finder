@@ -16,11 +16,8 @@ class GitHub{
         clientSecret=${this.clientSecret}`);
 
         //Repo API call - 5 latest repos
-        const repoResponse = await fetch(`https://api.github.com/users/${user}/repos?
-                                    per_page="${this.reposQuantity}&
-                                        sort="${this.repos_sort_asc}&"
-                                    client_id=${this.clientID}?
-                                    clientSecret=${this.clientSecret}`);
+        const repoResponse = await fetch(`https://api.github.com/users/${user}/repos?per_page=${this.reposQuantity}&sort=${this.repos_sort_asc}&client_id=${this.clientID}&client_secret=${this.clientSecret}`);
+                                    
 
         const profile = await profileResponse.json();
 

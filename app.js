@@ -1,7 +1,8 @@
-//App Properties
+                                    //App Properties
 const github = new GitHub(); 
+const ui = new UI();
  
- // Dom Properties
+                                    // Dom Properties
 const searchUser = document.getElementById('searchUser');
 
 
@@ -13,9 +14,16 @@ function fetchUserProfile(){
         
         //make HTTP call
         github.getUser(userQuery).then(data => {
-            console.log(data);
+            if(data.profile.message === 'Not Found'){ // User not found
+                //Show alert
+            }else{
+                ui.showProfile(data.profile);
+            }
         });
 
+    }
+    else{ // clear inputs
+        //clear profile
     }
     
 }

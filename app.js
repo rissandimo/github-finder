@@ -17,6 +17,8 @@ function fetchUserProfile(){
             if(data.profile.message === 'Not Found'){ // User not found
                 //Show alert
             }else{
+                console.log(data.profile);
+                
                 ui.showProfile(data.profile);
             }
         });

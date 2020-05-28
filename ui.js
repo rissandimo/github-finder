@@ -3,6 +3,28 @@ class UI{
         this.profile = document.getElementById('profile');
     }
 
+    clearProfile(){
+        this.profile.innerHTML = '';
+    }
+
+    showAlert(message, className){
+        const alertDiv = document.createElement('div');
+        //add classes based on alert
+        alertDiv.className = className;
+
+        //Add text
+        alertDiv.append(document.createTextNode(message));
+
+        //Get parent container
+        const searchContainer = document.querySelector('.search-container');
+        
+        //get search box to pre-append alertDiv
+        const searchBox = document.querySelector('.search');
+
+        //insert alert div followed by search box
+        searchContainer.insertBefore(alertDiv, searchBox);
+    }
+
     showProfile(user){
         this.profile.innerHTML = `
         <!-- Results -->

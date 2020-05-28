@@ -10,22 +10,20 @@ const searchUser = document.getElementById('searchUser');
 function fetchUserProfile(){
     const userQuery = searchUser.value;
 
-    if(userQuery != ''){
-        
+    if(userQuery != ''){ // user query
+
         //make HTTP call
         github.getUser(userQuery).then(data => {
             if(data.profile.message === 'Not Found'){ // User not found
-                //Show alert
-            }else{
+                ui.showAlert('User not found', 'alert alert-danger');
+            }else{  // user found
                 console.log(data.profile);
-                
                 ui.showProfile(data.profile);
             }
         });
-
     }
-    else{ // clear inputs
-        //clear profile
+    else{ // no user query / cleared inputs
+        ui.clearProfile();
     }
     
 }

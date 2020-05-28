@@ -27,6 +27,11 @@ class UI{
 
         //insert alert div followed by search box
         searchContainer.insertBefore(alertDiv, searchBox);
+
+        //clear alert after 3 sec
+        setTimeout(() => {
+            this.clearAlertMessage();
+        }, 3000);
     }
 
     clearAlertMessage(){
